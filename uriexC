@@ -1,0 +1,34 @@
+#include <stdio.h>
+ 
+int main() 
+{
+    int o,i;               // Declaração de variáveis: o = quantidade de ordens; i = variável de controle;
+    char d,p='N';          // d = comando digitado pelo usuário (Esquerda ou Direita); p = posição na qual o soldado está olhando;
+    scanf("%d", &o);       // Pede uma quantidade de ordens
+    while (o != 0)   
+    {
+        for(i=0; i==o; i++)          // For que executa os comandos digitados pelo usuário até que o valor de i seja igual ao valor de ordens
+        {
+            scanf("%c", &d);         // Pede o(s) comando(s) para o usuário
+            if(d=='E' && p=='N')     // Se for solicitado "E" e o soldado estiver virado para o norte
+                p='O';               // Atribui valor Oeste para a posição dele
+            if(d=='E' && p=='O')
+                p='S';
+            if(d=='E' && p=='S')
+                p='L';
+            if(d=='E' && p=='L')
+                p='N';
+            if(d=='D' && p=='N')
+                p='L';
+            if(d=='D' && p=='L')
+                p='S';
+            if(d=='D' && p=='S')
+                p='O';
+            if(d=='D' && p=='O')
+                p='N';
+        }
+        printf("%c", p);            // Exibe a posição do soldado depois dos comandos solicitados pelo usuário
+        scanf("%d", &o);            // Solicita uma nova quantidade de ordens
+    }
+    return 0;
+}
